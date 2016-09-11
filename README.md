@@ -1,2 +1,5 @@
-# docker-debian-stretch
-Docker build of Debian Stretch with CH CA certificate
+# Docker Debian images
+
+Docker build of Debian with CH CA certificate
+
+https://hub.docker.com/r/wisvch/debian/
