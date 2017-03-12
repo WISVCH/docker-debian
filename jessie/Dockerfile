@@ -1,8 +1,8 @@
 FROM debian:jessie
 MAINTAINER Mark Janssen <mark@praseodym.net>
 
-RUN export DEBIAN_FRONTEND="noninteractive" && \
-    apt-get update && \
+ENV DEBIAN_FRONTEND="noninteractive"
+RUN apt-get update && \
     apt-get dist-upgrade -y && \
     apt-get install -y --no-install-recommends curl ca-certificates && \
     rm -rf /var/lib/apt/lists/*
