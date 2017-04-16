@@ -1,5 +1,4 @@
 FROM debian:jessie
-MAINTAINER Mark Janssen <mark@praseodym.net>
 
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && \
