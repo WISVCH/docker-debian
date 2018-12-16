@@ -2,7 +2,6 @@ FROM debian:stretch-slim
 
 ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get update && \
-    apt-get dist-upgrade -y && \
     apt-get install -y --no-install-recommends ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
