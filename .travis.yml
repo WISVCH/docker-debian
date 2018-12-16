@@ -1,0 +1,31 @@
+language: minimal
+services:
+  - docker
+env:
+  - TAG=jessie
+  - TAG=stretch
+  - TAG=stretch-slim
+script:
+  - cd $TAG
+  - docker build --no-cache --pull -t wisvch/debian:$TAG -t quay.io/wisvch/debian:$TAG .
+deploy:
+  - provider: script
+    script: >-
+      sh -c '
+      docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+      echo pushing to wisvch/debian:$TAG;
+      docker push wisvch/debian:$TAG;
+      '
+    on:
+      branch: master
+  - provider: script
+    script: >-
+      sh -c '
+      docker login -u "$QUAY_USERNAME" -p "$QUAY_PASSWORD" quay.io;
+      echo pushing to quay.io/wisvch/debian:$TAG;
+      docker push quay.io/wisvch/debian:$TAG;
+      '
+    on:
+      branch: master
+notifications:
+  email: false
