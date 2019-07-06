@@ -5,6 +5,8 @@ env:
   - TAG=jessie
   - TAG=stretch
   - TAG=stretch-slim
+  - TAG=buster
+  - TAG=buster-slim
 script:
   - cd $TAG
   - docker build --no-cache --pull -t wisvch/debian:$TAG -t quay.io/wisvch/debian:$TAG .
